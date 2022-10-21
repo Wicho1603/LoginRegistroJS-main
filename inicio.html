@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <img src="img/musica_y_cerebro_02.jpg">
+            <h1>Bienvenido a mi nueva pagina de musica</h1>
+        </div>
+        <div id="salir">
+            <button class="btn btn-outline-danger" id="btnSalir">salir</button>
+        </div>
+    </div>
+    <script>
+
+        window.addEventListener('load', function(){
+            if(localStorage.getItem('sesion') == null){
+                window.location.replace('./index.html', '_self');
+            }
+        })
+
+        const boton = document.getElementById('btnSalir');
+
+        boton.addEventListener('click', function(e){
+            e.preventDefault();
+            localStorage.removeItem('sesion');
+            window.open('./index.html', '_self');
+        });
+    </script>
+</body>
+</html> 
